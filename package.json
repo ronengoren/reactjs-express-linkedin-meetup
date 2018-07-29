@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"node ./bin/www\" \"cd client && npm run start\"",
+    "start": "node ./bin/www",
     "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
 
   },
