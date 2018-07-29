@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
-    },
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.1",
