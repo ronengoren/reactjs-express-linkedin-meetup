@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "engines": {
-    "node": "8.10.0"
+    "node": "8.10.0",
+    "yarn": "1.7.0"
   },
   "scripts": {
-    "start": "concurrently \"cd client && yarn start\" \"node ./bin/www\"",
-    "heroku-postbuild": "yarn start"
-  },
+    "start": "node ./bin/www",
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
+    },
   "dependencies": {
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.1",
