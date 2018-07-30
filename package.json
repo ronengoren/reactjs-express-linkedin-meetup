@@ -7,8 +7,8 @@
      "yarn": "1.7.0"
   },
   "scripts": {
-    "start": "node ./bin/www",
-    "heroku-postbuild": "cd client && yarn && yarn run build"
+    "start": "concurrently \"cd client && yarn start\" \"node ./bin/www\"",
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
     },
   "dependencies": {
     "body-parser": "^1.18.3",
