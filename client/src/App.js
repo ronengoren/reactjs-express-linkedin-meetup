@@ -7,7 +7,7 @@ import "react-s-alert/dist/s-alert-css-effects/slide.css";
 
 var IN = null;
 
-
+var text = ""
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,16 +26,25 @@ class App extends Component {
       connectionsCount: null,
       items: [],
       error: null,
-      isLoaded: false
+      isLoaded: false,
+      text: ""
     };
+  }
+
+  getData = (text) => {
+    var fetchUrl = "/users?text=${"+ text + "}"
+
+    fetch(fetchUrl)
+      .then(res => res.json())
+      .then(users => this.setState({ users }));
   }
 
   componentDidMount() {
     this.loadLinkedinJS();
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
+   
 
+
+    
   }
   
   isLinkedinAuthorized = () => {
@@ -61,31 +70,7 @@ class App extends Component {
   linkedinLogout = () => {
     IN.User.logout(this.updateAuthorizeStatus);
   };
-  // componentDidMount = () => {
-    // const ul = document.getElementById('users'); 
-    // const url = 'https://api.meetup.com/find/groups?key=326d1a3e7c615d6f6f2752807a5f7b38&sign=true&photo-host=public&text=Computer+Software&page=20';
-    // this.loadLinkedinJS();
-//     fetch(url)
-//     .then(res => res.json())
-//     .then((result)=> {
-//       // console.log(result)
-//       this.setState({
-//         isLoaded: true,
-//         items: result.items
-//       });
-//       console.log("dfdf")
-//       console.log(result)
-   
-//   },
-//   (error) => {
-//     this.setState({
-//       isLoaded: true,
-//       error
-//     });
-//   }
-// )
 
-  // }
  
 
   loadLinkedinJS = () => {
@@ -106,6 +91,7 @@ class App extends Component {
       .method("GET")
       .body()
       .result(this.updateLinkedinProfile);
+
   };
 
   updateLinkedinProfile = profile => {
@@ -121,6 +107,9 @@ class App extends Component {
       summary: profile.summary,
       connectionsCount: profile.numConnections
     });
+    text = profile.industry
+    console.log(text)
+    this.getData(text);
   };
 
   shareToLinkedin = () => {
@@ -226,7 +215,7 @@ console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
                 pictureURL={this.state.pictureURL}
                 location={this.state.location}
                 positions={this.state.positions}
-                summary={this.state.summary}
+                // summary={this.state.summary}
                 connectionsCount={this.state.connectionsCount}
                 industry={this.state.industry}
 
