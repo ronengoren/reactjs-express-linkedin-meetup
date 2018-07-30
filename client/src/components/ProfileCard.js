@@ -4,8 +4,11 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faUsers from '@fortawesome/fontawesome-free-solid/faUsers'
 
 class ProfileCard extends Component {
+ 
+
 
   render(){
+   
     return (
       <div className="profile">
         {
@@ -19,8 +22,9 @@ class ProfileCard extends Component {
 
           <h3>{this.props.location}・{this.props.connectionsCount} <FontAwesomeIcon icon={faUsers}/></h3>
           <hr/>
-          <p className="profile-summary">{this.props.summary}</p>
           <p className="profile-summary">{this.props.industry}</p>
+          
+            <p className="profile-summary">{this.props.summary}</p>
 
         </div>
       </div>

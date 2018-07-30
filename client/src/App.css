@@ -92,6 +92,7 @@ body {
 
 .profile-summary {
   line-height: 24px;
+  font-size: 14px;
 }
 
 hr {
@@ -112,7 +113,7 @@ hr {
         animation: puff-in-bottom 1s both;
 }
 
-.split {
+/* .split {
   height: 100%;
   width: 100%;
   position: fixed;
@@ -120,19 +121,19 @@ hr {
   top: 0;
   overflow-x: hidden;
   padding-top: 20px;
-}
+} */
 
 /* .left {
   top: 100px;
   left: 0;
   background-color: #0077B5;
 } */
-.right {
+/* .right { */
   /* top: 100px; */
-  height: 100%;
+  /* height: 100%;
   right: 0;
-  background-color: #e51937;
-}
+  background-color: #0077B5;
+} */
 /* .centered {
   position: absolute;
   top: 50%;
@@ -165,8 +166,8 @@ hr {
 .snip1585:before,
 .snip1585:after {
   background-color: rgba(0, 0, 0, 0.5);
-  border-top: 50px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 50px solid rgba(0, 0, 0, 0.5);
+  border-top: 50px solid #e51937;
+  border-bottom: 50px solid #e51937;
   position: absolute;
   top: 0; 
   bottom: 0;
