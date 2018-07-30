@@ -7,7 +7,6 @@ import "react-s-alert/dist/s-alert-css-effects/slide.css";
 import SigninLI1 from './SigninLI1.png';
 import Select from 'react-select';
 
-require('dotenv').config()
 
 var IN = null;
 
