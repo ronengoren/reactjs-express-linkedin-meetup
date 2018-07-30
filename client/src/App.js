@@ -36,17 +36,14 @@ class App extends Component {
     var fetchUrl = "/users?text=${"+ text + "}"
 
     fetch(fetchUrl)
-      .then(res => res.json())
-      
-      .then(users => this.setState({ users }));
-            console.log("sdsd")
+      .then(res => {
+      return res.json()
+      }).then(users => this.setState({ users: users }));
 
   }
 
   componentDidMount() {
     this.loadLinkedinJS();
-   
-
 
     
   }
@@ -187,10 +184,16 @@ console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
 
   render() {
     return (
+      <div className="container">
       <div className="App">
+           <h1>Meet N Link </h1>
+
              {this.state.isAuthorized ? (
              
              <span>
+              
+                <img className="userimage" src={this.state.pictureURL} alt="userimage" />
+
                 <button onClick={this.linkedinLogout}>Linkedin Logout</button>
                 <button onClick={this.shareToLinkedin}>Share on Linkedin</button>
               </span>
@@ -244,9 +247,10 @@ console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
           <figcaption>
     <h3>{user.name} <span>{user.urlname}</span></h3>
   </figcaption>
-            <a key={user.link} href={user.link}></a> 
+            <a key={user.link} href={user.link} target="_blank" ></a> 
           </figure>
         )}
+      </div>
       </div>
       </div>
     );

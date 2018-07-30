@@ -1,5 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,700;);
-
+body {
+  height: 100%;
+  padding-bottom: 100px;
+}
 .App {
   margin-top: 10px;
   text-align: center;
@@ -36,7 +39,6 @@
   background: #fff;
   transition: 0.3s;
   width: 500px;
-  margin-top: 40px;
   margin: 20px auto;
   padding: 10px;
 }
@@ -58,6 +60,12 @@
   border-radius: 50%;
 }
 
+.userimage{
+  width: 80px;
+
+  border-radius: 50%;
+
+}
 
 /* Add some padding inside the card container */
 
@@ -106,7 +114,7 @@ hr {
 
 .split {
   height: 100%;
-  width: 50%;
+  width: 100%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -114,24 +122,24 @@ hr {
   padding-top: 20px;
 }
 
-.left {
+/* .left {
   top: 100px;
   left: 0;
   background-color: #0077B5;
-}
+} */
 .right {
-  top: 100px;
-
+  /* top: 100px; */
+  height: 100%;
   right: 0;
   background-color: #e51937;
 }
-.centered {
+/* .centered {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-}
+} */
 .snip1585 {
   background-color: #000;
   color: #fff;
