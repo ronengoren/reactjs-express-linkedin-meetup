@@ -4,6 +4,7 @@ import ProfileCard from "./components/ProfileCard";
 import Alert from "react-s-alert";
 import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
+import SigninLI1 from './SigninLI1.png';
 
 var IN = null;
 
@@ -36,7 +37,10 @@ class App extends Component {
 
     fetch(fetchUrl)
       .then(res => res.json())
+      
       .then(users => this.setState({ users }));
+            console.log("sdsd")
+
   }
 
   componentDidMount() {
@@ -184,24 +188,26 @@ console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
   render() {
     return (
       <div className="App">
-      
-       <header className="App-header">
+             {this.state.isAuthorized ? (
+             
+             <span>
+                <button onClick={this.linkedinLogout}>Linkedin Logout</button>
+                <button onClick={this.shareToLinkedin}>Share on Linkedin</button>
+              </span>
+           ) : (
+             
+             <img src={SigninLI1} alt="myimage" onClick={this.linkedinAuthorize}/>
+           )}
+       {/* <header className="App-header">
        
        <h1 className="App-title">React Linkedin Login</h1>
        <p className="App-intro">A demo page for Linkedin login</p>
-        <h1>Users</h1>
-        </header>
+        </header> */}
+        <div className="split left">
+        <div className="centered">
+
         <div className="App-body">
-           {this.state.isAuthorized ? (
-             
-            <span>
-               <button onClick={this.linkedinLogout}>Linkedin Logout</button>
-               <button onClick={this.shareToLinkedin}>Share on Linkedin</button>
-             </span>
-          ) : (
-            
-            <button onClick={this.linkedinAuthorize}>Linkedin Login</button>
-          )}
+    
       
           </div>
      
@@ -221,11 +227,25 @@ console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
 
               />
             )}
-     
-     <div className="Users">
-        <h1>MeetUps</h1>
+            </div>
+     </div>
+     <h1>Meet N Link </h1>
+
+     <div className="split right">
+
+     <div className="centered">
+
+ 
+   
+        </div>
         {this.state.users.map(user =>
-          <div key={user.id}>{user.name}</div>
+          <figure key={user.id} className="snip1585">
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample70.jpg' alt=""/>
+          <figcaption>
+    <h3>{user.name} <span>{user.urlname}</span></h3>
+  </figcaption>
+            <a key={user.link} href={user.link}></a> 
+          </figure>
         )}
       </div>
       </div>
