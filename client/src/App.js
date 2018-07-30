@@ -226,7 +226,7 @@ console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
                 pictureURL={this.state.pictureURL}
                 location={this.state.location}
                 positions={this.state.positions}
-                // summary={this.state.summary}
+                summary={this.state.summary}
                 connectionsCount={this.state.connectionsCount}
                 industry={this.state.industry}
 
