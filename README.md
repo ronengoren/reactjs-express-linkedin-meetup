@@ -19,3 +19,6 @@
 ### FrontEnd - ReactJS (react-script), Bootstrap
 
 ## Project deployed on heroku: https://meetnlink.herokuapp.com/
+
+![screen shot 2018-07-31 at 5 53 45 am](https://user-images.githubusercontent.com/18123962/43476703-3cf29a2c-94c7-11e8-99a1-059b189488ea.png)
+![screen shot 2018-07-31 at 5 54 07 am](https://user-images.githubusercontent.com/18123962/43476708-3fa0d2d4-94c7-11e8-9367-2cf510326b23.png)
