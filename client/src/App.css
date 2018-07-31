@@ -84,6 +84,10 @@ body {
 .selectmenu{
   font-size: 20px;
 }
+.selectmenu:hover{
+  font-size: 20px;
+  margin-bottom: 320px;
+}
 /* Add some padding inside the card container */
 
 .profile-container {
@@ -140,7 +144,9 @@ hr {
 }
 
 .meetup{
-  margin-top: 80px;
+  margin-top: 50px;
+  /* margin-top: 320px; */
+
   cursor: pointer
 }
 

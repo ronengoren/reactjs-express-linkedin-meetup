@@ -165,6 +165,8 @@ const options = [
 
 ];
 
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -188,7 +190,12 @@ class App extends Component {
       selectedOption: null,
       shown: false,
       menuPlacement: "auto",
-      menuShouldScrollIntoView: true
+      menuShouldScrollIntoView: true,
+      MeetupsStyle: {
+        marginBottom: 50
+    },
+      hover: false
+
       
     
       
@@ -328,12 +335,19 @@ class App extends Component {
     Alert.error("Something wrong, please try again.");
   };
 
+  onMouseOver(){
 
+  }
 
 
   render() {
     const { selectedOption } = this.state;
-
+    const {menuShouldScrollIntoView} = this.state
+    const scope = {
+      MeetupsStyle: {
+          marginBottom: 0
+      }
+    };
     return (
       <div className="container">
             <img className="logoimage" src={mnl} alt="userimage" />
@@ -412,11 +426,13 @@ class App extends Component {
       <h1>More knowledge, different industry. choose here to explore:</h1>
 
                 <Select
-                className={"selectmenu"}
+        className={"selectmenu"}
         value={selectedOption}
         onChange={this.handleChange}
         options={options}
         menuPlacement={"auto"}
+        menuShouldScrollIntoView={true}
+        onMouseOver={this.onMouseOver}
       />
 
               </span>
