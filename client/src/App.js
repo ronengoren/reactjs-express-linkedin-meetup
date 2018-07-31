@@ -419,7 +419,6 @@ class App extends Component {
         menuPlacement={"auto"}
       />
 
-                {/* <button onClick={this.shareToLinkedin}>Share on Linkedin</button> */}
               </span>
            ) : (
 
@@ -434,13 +433,8 @@ class App extends Component {
         {this.state.users.map(user =>
           <figure key={user.id} className="snip1585">
           <div key={user.key_photo} className="image">
-          {/* {
-            
-          this.props.users.key_photo.photo_link && 
-          <img className="MUpicture" src={this.props.users.key_photo.photo_link} alt="MUpicture"/>
-        } */}
+      
           <img src={mulogo} alt="groupImage"/>
-          {/* <img src={user.key_photo.photo_link} alt="groudfpImage"/> */}
 
           </div>
          
