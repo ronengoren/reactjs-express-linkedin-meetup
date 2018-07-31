@@ -356,7 +356,6 @@ class App extends Component {
       <h1 className="Welcome">Welcome to Meet & Link</h1>
       <h1>Sign in with your <img className="meetupText" src={linkedin} alt="meetupTextImage"/> account to see all <img className="meetupText" src={meetup} alt="meetupTextImage"/>'s related to your current job industry. </h1>
       <h1>Meetups are ordered by distance from your location</h1>
-        <h1>For More Meetups, choose different industry</h1>
         {this.state.isAuthorized ? (
              
              <span>
@@ -410,7 +409,7 @@ class App extends Component {
      {this.state.isAuthorized ? (
              
              <span>
-      <h1>Choose different industry and start to explore:</h1>
+      <h1>More knowledge, different industry. choose here to explore:</h1>
 
                 <Select
                 className={"selectmenu"}
