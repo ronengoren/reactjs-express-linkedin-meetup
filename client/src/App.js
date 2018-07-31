@@ -245,7 +245,10 @@ class App extends Component {
     IN.Event.on(IN, "auth", this.updateAuthorizeStatus);
   };
   linkedinLogout = () => {
+
     IN.User.logout(this.updateAuthorizeStatus);
+    setTimeout(function(){ window.location.reload(); }, 2000);
+
   };
 
  
@@ -351,7 +354,7 @@ class App extends Component {
       <h1 className="Welcome">Welcome to Meet & Link</h1>
       <h1>Sign in with your Linkedin account to see all Meetups related to your current job industry </h1>
       <h1>Meetups are ordered by distance of your location</h1>
-        <h1>For More Meetups, you can choose different industry:</h1>
+        <h1>For More Meetups, you can choose different industry</h1>
    
        
        
@@ -391,12 +394,25 @@ class App extends Component {
      <div className="split right">
 
      <div className="centered">
-     <Select
+     {this.state.isAuthorized ? (
+             
+             <span>
+      <h1>Choose different industry and start to explore:</h1>
+
+                <Select
         value={selectedOption}
         onChange={this.handleChange}
         options={options}
         menuPlacement={"auto"}
       />
+
+                {/* <button onClick={this.shareToLinkedin}>Share on Linkedin</button> */}
+              </span>
+           ) : (
+
+             <h1></h1>
+           )}
+   
  
    
         </div>
