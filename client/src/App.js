@@ -341,10 +341,10 @@ class App extends Component {
          {this.state.isAuthorized ? (
              
              <span>
-              
+              <button onClick={this.linkedinLogout}>Linkedin Logout</button> <br/>
+
               <img className="userimage" src={this.state.pictureURL} alt="userimage" />
 
-                <button onClick={this.linkedinLogout}>Linkedin Logout</button> <br/>
                 {/* <button onClick={this.shareToLinkedin}>Share on Linkedin</button> */}
               </span>
            ) : (
@@ -354,7 +354,7 @@ class App extends Component {
      
       <div className="App">
       <h1 className="Welcome">Welcome to Meet & Link</h1>
-      <h1>Sign in with your <img className="meetupText" src={linkedin} alt="meetupTextImage"/> account to see all <img className="meetupText" src={meetup} alt="meetupTextImage"/>'s related to your current job industry. </h1>
+      <h1>Sign in with your <img className="meetupText" src={linkedin} alt="meetupTextImage"/> account and see all <img className="meetupText" src={meetup} alt="meetupTextImage"/>'s related to your current job industry. </h1>
       <h1>Meetups are ordered by distance from your location</h1>
         {this.state.isAuthorized ? (
              
