@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import ProfileCard from "./components/ProfileCard";
 import Alert from "react-s-alert";
 import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
@@ -8,6 +7,9 @@ import SigninLI1 from './SigninLI1.png';
 import Select from 'react-select';
 import mulogo from './mulogo.png';
 import mnl from './mnl.jpeg';
+import meetup from './meetup.png';
+import linkedin from './linkedin.png';
+import Modal from 'react-responsive-modal';
 
 var IN = null;
 
@@ -187,6 +189,7 @@ class App extends Component {
       shown: false,
       menuPlacement: "auto",
       menuShouldScrollIntoView: true
+      
     
       
     };
@@ -346,16 +349,26 @@ class App extends Component {
               </span>
            ) : (
 
-             
-             <img className="liauth" src={SigninLI1} alt="myimage" onClick={this.linkedinAuthorize}/>
+             <div></div>
            )}
      
       <div className="App">
       <h1 className="Welcome">Welcome to Meet & Link</h1>
-      <h1>Sign in with your Linkedin account to see all Meetups related to your current job industry </h1>
-      <h1>Meetups are ordered by distance of your location</h1>
-        <h1>For More Meetups, you can choose different industry</h1>
-   
+      <h1>Sign in with your <img className="meetupText" src={linkedin} alt="meetupTextImage"/> account to see all <img className="meetupText" src={meetup} alt="meetupTextImage"/>'s related to your current job industry. </h1>
+      <h1>Meetups are ordered by distance from your location</h1>
+        <h1>For More Meetups, choose different industry</h1>
+        {this.state.isAuthorized ? (
+             
+             <span>
+              
+
+                {/* <button onClick={this.shareToLinkedin}>Share on Linkedin</button> */}
+              </span>
+           ) : (
+
+             
+             <img className="liauth" src={SigninLI1} alt="myimage" onClick={this.linkedinAuthorize}/>
+           )}
        
        
        {/* <header className="App-header">
@@ -400,6 +413,7 @@ class App extends Component {
       <h1>Choose different industry and start to explore:</h1>
 
                 <Select
+                className={"selectmenu"}
         value={selectedOption}
         onChange={this.handleChange}
         options={options}
@@ -410,7 +424,7 @@ class App extends Component {
               </span>
            ) : (
 
-             <h1></h1>
+          <div></div>
            )}
    
  
@@ -421,7 +435,6 @@ class App extends Component {
         {this.state.users.map(user =>
           <figure key={user.id} className="snip1585">
           <div key={user.key_photo} className="image">
-          {console.log(user.key_photo)}
           {/* {
             
           this.props.users.key_photo.photo_link && 
@@ -434,7 +447,8 @@ class App extends Component {
          
             <a key={user.link} href={user.link} target="_blank" > 
             <figcaption>
-            <h3>{user.name} <span>{user.urlname}</span></h3>
+            <h3><span>{user.urlname}</span></h3>
+
           </figcaption>
   </a> 
           </figure>
