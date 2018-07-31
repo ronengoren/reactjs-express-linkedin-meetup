@@ -2,4 +2,6 @@
 
 
 
-# reactjs-express-linkedin-meetup
+# MEET & LINK it’s a web-app using Linkedin API and MeetUps API.
+    The project built on ReactJS (backend and frontend).
+
