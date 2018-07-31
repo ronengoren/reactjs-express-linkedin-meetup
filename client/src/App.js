@@ -6,7 +6,8 @@ import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
 import SigninLI1 from './SigninLI1.png';
 import Select from 'react-select';
-
+import mulogo from './mulogo.png';
+import mnl from './mnl.jpeg';
 
 var IN = null;
 
@@ -210,9 +211,12 @@ class App extends Component {
     fetch(fetchUrl)
       .then(res => {
       return res.json()
-      }).then(users => this.setState({ users: users }));
+      })
+      
+      .then(users => this.setState({ users: users }))
 
   }
+  
 
   componentDidMount() {
     this.loadLinkedinJS();
@@ -318,40 +322,7 @@ class App extends Component {
     Alert.error("Something wrong, please try again.");
   };
 
-  requestOAuthToken = () => {
 
-console.log(process.env.REACT_APP_LINKEDIN_REDIRECT_URI)
-console.log("sdkjskjd")
-console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
-    var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78e29oa92rrgkt&scope=r_basicprofile&state=123456&redirect_uri=${process.env.REACT_APP_LINKEDIN_REDIRECT_URI}`
-    var width = 450,
-      height = 730,
-      left = window.screen.width / 2 - width / 2,
-      top = window.screen.height / 2 - height / 2;
-
-    window.addEventListener(
-      "message",
-      (event) => {
-        if (event.data.type === "access_token") {
-          Alert.success(`Access token obtained: ${event.data.access_token}`,{position:'top'});
-        }
-      },
-      false
-    );
-
-    window.open(
-      oauthUrl,
-      "Linkedin",
-      "menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=" +
-        width +
-        ", height=" +
-        height +
-        ", top=" +
-        top +
-        ", left=" +
-        left
-    );
-  };
 
 
   render() {
@@ -359,26 +330,31 @@ console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
 
     return (
       <div className="container">
-      <div className="App">
-           <h1>Meet N Link </h1>
+            <img className="logoimage" src={mnl} alt="userimage" />
 
-             {this.state.isAuthorized ? (
+         {this.state.isAuthorized ? (
              
              <span>
               
-                <img className="userimage" src={this.state.pictureURL} alt="userimage" />
+              <img className="userimage" src={this.state.pictureURL} alt="userimage" />
 
-                <button onClick={this.linkedinLogout}>Linkedin Logout</button>
-                <button onClick={this.shareToLinkedin}>Share on Linkedin</button>
+                <button onClick={this.linkedinLogout}>Linkedin Logout</button> <br/>
+                {/* <button onClick={this.shareToLinkedin}>Share on Linkedin</button> */}
               </span>
            ) : (
 
              
-             <img src={SigninLI1} alt="myimage" onClick={this.linkedinAuthorize}/>
+             <img className="liauth" src={SigninLI1} alt="myimage" onClick={this.linkedinAuthorize}/>
            )}
-           <button onClick={this.requestOAuthToken}>
-            Request OAuth2.0 Token
-          </button>
+     
+      <div className="App">
+      <h1 className="Welcome">Welcome to Meet & Link</h1>
+      <h1>Sign in with your Linkedin account to see all Meetups realted to your current job industry </h1>
+      <h1>Meetups are ordered by distance of your location</h1>
+        <h1>For More Meetups, you can choose different industry:</h1>
+   
+       
+       
        {/* <header className="App-header">
        
        <h1 className="App-title">React Linkedin Login</h1>
@@ -392,14 +368,14 @@ console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
       
           </div>
      
-         {this.state.isAuthorized &&
+         {/* {this.state.isAuthorized &&
             this.state.summary && (
               <ProfileCard
                 firstName={this.state.firstName}
                 headline={this.state.headline}
                 lastName={this.state.lastName}
                 profileURL={this.state.profileURL}
-                pictureURL={this.state.pictureURL}
+                // pictureURL={this.state.pictureURL}
                 location={this.state.location}
                 positions={this.state.positions}
                 // summary={this.state.summary}
@@ -407,7 +383,7 @@ console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
                 industry={this.state.industry}
 
               />
-            )}
+            )} */}
       
             </div>
      </div>
@@ -425,16 +401,26 @@ console.log(process.env.REACT_APP_LINKEDIN_CLIENT_ID)
    
         </div>
         <div className="meetup">
-        <h1>Here are all MeetUps you can Meet & Link based on your desired industry: <br/>{this.state.industry}</h1>
-        <h1>Please choose from the list of industries to explore new MeetUps</h1>
-   
+      
         {this.state.users.map(user =>
           <figure key={user.id} className="snip1585">
-          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample70.jpg' alt=""/>
-          <figcaption>
-    <h3>{user.name} <span>{user.urlname}</span></h3>
-  </figcaption>
-            <a key={user.link} href={user.link} target="_blank" ></a> 
+          <div key={user.key_photo} className="image">
+          {console.log(user.key_photo)}
+          {/* {
+            
+          this.props.users.key_photo.photo_link && 
+          <img className="MUpicture" src={this.props.users.key_photo.photo_link} alt="MUpicture"/>
+        } */}
+          <img src={mulogo} alt="groupImage"/>
+          {/* <img src={user.key_photo.photo_link} alt="groudfpImage"/> */}
+
+          </div>
+         
+            <a key={user.link} href={user.link} target="_blank" > 
+            <figcaption>
+            <h3>{user.name} <span>{user.urlname}</span></h3>
+          </figcaption>
+  </a> 
           </figure>
         )}
         </div>

@@ -36,7 +36,7 @@ body {
 .profile {
   /* Add shadows to create the "card" effect */
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background: #0077B5;
   transition: 0.3s;
   width: 500px;
   margin: 20px auto;
@@ -61,12 +61,21 @@ body {
 }
 
 .userimage{
+  margin-top: 20px;
   width: 80px;
-
   border-radius: 50%;
 
 }
 
+.logoimage{
+  margin-top: 20px;
+  width: 180px;
+}
+
+.liauth{
+  width: 290px;
+
+}
 /* Add some padding inside the card container */
 
 .profile-container {
@@ -112,7 +121,14 @@ hr {
 -webkit-animation: puff-in-bottom 1s both;
         animation: puff-in-bottom 1s both;
 }
+.auth{
+  right: 50%;
 
+}
+
+.Welcome{
+  font-size: 80px;
+}
 /* .split {
   height: 100%;
   width: 100%;
@@ -142,7 +158,7 @@ hr {
   text-align: center;
 } */
 .snip1585 {
-  background-color: #000;
+  background-color: #0077B5;
   color: #fff;
   display: inline-block;
   font-family: 'Roboto', sans-serif;
