@@ -349,7 +349,7 @@ class App extends Component {
      
       <div className="App">
       <h1 className="Welcome">Welcome to Meet & Link</h1>
-      <h1>Sign in with your Linkedin account to see all Meetups realted to your current job industry </h1>
+      <h1>Sign in with your Linkedin account to see all Meetups related to your current job industry </h1>
       <h1>Meetups are ordered by distance of your location</h1>
         <h1>For More Meetups, you can choose different industry:</h1>
    
