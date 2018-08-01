@@ -214,10 +214,10 @@ class App extends Component {
     console.log(`Option selected:`, selectedOption);
     console.log(selectedOption.value);
     text = selectedOption.value
-    setTimeout(() => this.setState({ loading: false }), 2000);
+    setTimeout(() => this.setState({ loading: false }), 3000);
     setTimeout(function(){
       document.getElementById('yellow').style.visibility = 'visible'; 
-   }, 2000);
+   }, 3000);
     this.getData(text);
  
 
@@ -446,7 +446,9 @@ class App extends Component {
         options={options}
         menuPlacement={"auto"}
         menuShouldScrollIntoView={true}
-        onMouseOver={this.onMouseOver}
+        menuPlacement={"top"}
+        
+        // onMouseOver={this.onMouseOver}
       />
 
               </span>
@@ -462,7 +464,7 @@ class App extends Component {
         <GridLoader
       loaderStyle={{display: "block", margin: "0 auto", borderColor: 'red'}}
           color={'#0077B5'} 
-          // size={"50"}
+          size={"50"}
           loading={this.state.loading} 
         />
         </div>

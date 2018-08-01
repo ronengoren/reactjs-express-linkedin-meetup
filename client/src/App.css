@@ -84,10 +84,10 @@ body {
 .selectmenu{
   font-size: 20px;
 }
-.selectmenu:hover{
+/* .selectmenu:hover{
   font-size: 20px;
   margin-bottom: 320px;
-}
+} */
 /* Add some padding inside the card container */
 
 .profile-container {
