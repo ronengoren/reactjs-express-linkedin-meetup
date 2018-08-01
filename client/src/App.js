@@ -10,6 +10,7 @@ import mnl from './mnl.jpeg';
 import meetup from './meetup.png';
 import linkedin from './linkedin.png';
 import Modal from 'react-responsive-modal';
+import { GridLoader } from 'react-spinners';
 
 var IN = null;
 
@@ -194,20 +195,31 @@ class App extends Component {
       MeetupsStyle: {
         marginBottom: 50
     },
-      hover: false
-
-      
-    
-      
+      hover: false,
+      loading: false,
+      display: "none" 
     };
   }
 
   handleChange = (selectedOption) => {
+    var elems = document.getElementsByClassName('meetup');
+    for(var i = 0; i !== elems.length; ++i)
+    {
+    elems[i].style.visibility = "hidden";
+    }
+ 
     this.setState({ selectedOption });
+    setTimeout(() => this.setState({ loading: true }), 1000);
+   
     console.log(`Option selected:`, selectedOption);
     console.log(selectedOption.value);
     text = selectedOption.value
+    setTimeout(() => this.setState({ loading: false }), 2000);
+    setTimeout(function(){
+      document.getElementById('yellow').style.visibility = 'visible'; 
+   }, 2000);
     this.getData(text);
+ 
 
   }
 
@@ -342,6 +354,7 @@ class App extends Component {
 
   render() {
     const { selectedOption } = this.state;
+    const { loading } = this.state;
     const {menuShouldScrollIntoView} = this.state
     const scope = {
       MeetupsStyle: {
@@ -367,6 +380,7 @@ class App extends Component {
            )}
      
       <div className="App">
+   
       <h1 className="Welcome">Welcome to Meet & Link</h1>
       <h1>Sign in with your <img className="meetupText" src={linkedin} alt="meetupTextImage"/> account and see all <img className="meetupText" src={meetup} alt="meetupTextImage"/>'s related to your current job industry. </h1>
       <h1>Meetups are ordered by distance from your location</h1>
@@ -444,7 +458,15 @@ class App extends Component {
  
    
         </div>
-        <div className="meetup">
+        <div className="loader">
+        <GridLoader
+      loaderStyle={{display: "block", margin: "0 auto", borderColor: 'red'}}
+          color={'#0077B5'} 
+          // size={"50"}
+          loading={this.state.loading} 
+        />
+        </div>
+        <div id="yellow" className="meetup">
       
         {this.state.users.map(user =>
           <figure key={user.id} className="snip1585">
