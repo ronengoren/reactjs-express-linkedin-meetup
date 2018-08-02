@@ -197,7 +197,8 @@ class App extends Component {
     },
       hover: false,
       loading: false,
-      display: "none" 
+      display: "none",
+      results: []
     };
   }
 
@@ -227,17 +228,31 @@ class App extends Component {
 
 
 
-  getData = (text) => {
+  getData = () => {
+    this.state = {
+      users: []
+  }
     var fetchUrl = "/users?text=${"+ text + "}"
-
     fetch(fetchUrl)
       .then(res => {
-      return res.json()
+        return res.json()
+        // console.log(results);
+        .then(users => {
+          users = users.events
+          this.setState({ users: users })
+        console.log(users);
+        
       })
+      //   .then(users => {
+      //     this.setState({ users: users })
+      //   console.log(users);
+        
+      // })
       
-      .then(users => this.setState({ users: users }))
-
+      
+    })
   }
+  
   
 
   componentDidMount() {
@@ -363,6 +378,10 @@ class App extends Component {
     };
     return (
       <div className="container">
+     {/* {this.state.users.map(user => 
+    
+    <div>{user.id}</div>
+    )} */}
             <img className="logoimage" src={mnl} alt="userimage" />
 
          {this.state.isAuthorized ? (
@@ -468,18 +487,34 @@ class App extends Component {
         />
         </div>
         <div id="yellow" className="meetup">
-      
+        {/* {this.state.users.map(user => 
+        
+        <div></div>
+        )} */}
+        
+        
         {this.state.users.map(user =>
-          <figure key={user.id} className="snip1585">
-          <div key={user.key_photo} className="image">
+          <figure 
+          key={user.id} 
+          className="snip1585">
+          {/* <h1>{user.name} </h1> */}
+          <div 
+          key={user.id} 
+          className="image">
       
           <img src={mulogo} alt="groupImage"/>
 
           </div>
          
-            <a key={user.link} href={user.link} target="_blank" > 
+            <a 
+            key={user.id} 
+            href={user.link} 
+            target="_blank" > 
             <figcaption>
-            <h3><span>{user.urlname}</span></h3>
+            <h3><span>
+            {user.name} <br/><br/>
+            MeetUp Date: {user.local_date}
+            </span></h3>
 
           </figcaption>
   </a> 

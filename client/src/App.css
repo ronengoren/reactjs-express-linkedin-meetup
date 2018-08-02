@@ -211,8 +211,8 @@ hr {
 .snip1585:before,
 .snip1585:after {
   background-color: rgba(0, 0, 0, 0.5);
-  border-top: 50px solid #e51937;
-  border-bottom: 50px solid #e51937;
+  border-top: 50px solid #0077B5;
+  border-bottom: 50px solid #0077B5;
   position: absolute;
   top: 0; 
   bottom: 0;
